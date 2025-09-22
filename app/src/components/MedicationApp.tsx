@@ -243,9 +243,14 @@ export function MedicationApp() {
     );
   };
 
+  const [dialogTitle, setDialogTitle] = useState("");
+  const [dialogDescription, setDialogDescription] = useState("");
+
   // handleConfirmation.js equivalent: sets pending action and shows the appropriate dialog
   const handleConfirmAction = (action: () => void, title: string, description: string) => {
     setPendingAction(() => action);
+    setDialogTitle(title);
+    setDialogDescription(description);
     // Use includes lower-case as your titles use lower-case like 'guardar' and 'cancelar'
     setShowSaveDialog(title.toLowerCase().includes('guardar'));
     setShowCancelDialog(title.toLowerCase().includes('cancelar'));
@@ -832,8 +837,8 @@ export function MedicationApp() {
       <ConfirmationDialog
         visible={showCancelDialog}
         onClose={() => setShowCancelDialog(false)}
-        title="¿Seguro que quiere cancelar la acción?"
-        description="Los datos ingresados se perderán"
+        title={dialogTitle}
+        description={dialogDescription}
         onConfirm={() => {
           pendingAction();
           setShowCancelDialog(false);
@@ -845,8 +850,8 @@ export function MedicationApp() {
       <ConfirmationDialog
         visible={showSaveDialog}
         onClose={() => setShowSaveDialog(false)}
-        title="¿Seguro que quiere guardar los cambios?"
-        description="Se guardarán los datos ingresados"
+        title={dialogTitle}
+        description={dialogDescription}
         onConfirm={() => {
           pendingAction();
           setShowSaveDialog(false);
