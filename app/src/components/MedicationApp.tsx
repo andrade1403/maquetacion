@@ -662,7 +662,6 @@ export function MedicationApp() {
 
           <View style={styles.formCard}>
             <Text style={[styles.formSectionTitle, { fontSize: 20, marginBottom: 12 }]}>Configuración de Alarma</Text>
-
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Descripción</Text>
               <TextInput
@@ -707,7 +706,38 @@ export function MedicationApp() {
               <Text style={styles.buttonText}>Guardar</Text>
             </TouchableOpacity>
           </View>
-        </>
+        {/* Time picker modal */}
+      <Modal visible={showTimePicker} animationType="slide">
+        <SafeAreaView style={{ flex: 1 }}>
+          <View style={{ padding: 16, flex: 1 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
+              <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Seleccione hora</Text>
+              <TouchableOpacity onPress={() => setShowTimePicker(false)}>
+                <Text style={{ color: '#2563EB', fontSize: 18 }}>Cerrar</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView>
+              {generateTimeOptions().map((time) => (
+                <TouchableOpacity
+                  key={time}
+                  style={{
+                    paddingVertical: 12,
+                    borderBottomWidth: 1,
+                    borderBottomColor: '#E5E7EB',
+                  }}
+                  onPress={() => {
+                    setSelectedTime(time);
+                    setShowTimePicker(false);
+                  }}
+                >
+                  <Text style={{ fontSize: 18 }}>{time}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        </SafeAreaView>
+      </Modal>
+      </>
       )}
     </ScrollView>
   );
