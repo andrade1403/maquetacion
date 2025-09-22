@@ -190,7 +190,7 @@ export const styles = StyleSheet.create({
   formSectionTitle: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#2563EB',
+    color: '#000000',
     marginBottom: 24,
   },
   inputGroup: {
