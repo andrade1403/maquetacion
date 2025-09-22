@@ -91,9 +91,11 @@ export const styles = StyleSheet.create({
     color: '#666',
   },
   medicationActions: {
+    flexDirection: 'row',
     alignItems: 'center',
-    gap: 12,
-  },
+    justifyContent: 'space-between',
+    paddingHorizontal: 10
+},
 
   /* ---------- List ---------- */
   medicationsList: {
@@ -125,6 +127,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     justifyContent: 'center',
     alignItems: 'center',
+    marginLeft: 15
   },
   buttonText: {
     color: '#FFF',

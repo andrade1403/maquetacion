@@ -253,7 +253,11 @@ export function MedicationApp() {
                   <Text style={styles.medicationQuantity}>1 pastilla</Text>
                 </View>
                 <View style={styles.medicationActions}>
-                  <Switch value={medication.isActive} onValueChange={() => toggleMedication(medication.id)} />
+                  <Switch 
+                  value={medication.isActive} 
+                  onValueChange={() => toggleMedication(medication.id)} 
+                  trackColor={{ false: "#b0b1b3ff", true: "#2563EB" }}
+                  thumbColor={medication.isActive ? "#FFFFFF" : "#626262"} />
                   <TouchableOpacity
                     style={styles.editButton}
                     onPress={() => {
