@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { width, height } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
   app: {
@@ -13,8 +13,8 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingTop: 16,
   },
-  
-  // Medication Icon Styles
+
+  /* ---------- Medication Icon ---------- */
   medicationIcon: {
     width: 84,
     height: 84,
@@ -39,7 +39,7 @@ export const styles = StyleSheet.create({
     marginLeft: -1,
   },
 
-  // Card Styles
+  /* ---------- Cards ---------- */
   nextMedicationCard: {
     backgroundColor: '#E9EBEF',
     borderWidth: 4,
@@ -63,7 +63,7 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
 
-  // Medication Row Styles
+  /* ---------- Medication Row ---------- */
   medicationRow: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -95,7 +95,7 @@ export const styles = StyleSheet.create({
     gap: 12,
   },
 
-  // List Styles
+  /* ---------- List ---------- */
   medicationsList: {
     flex: 1,
   },
@@ -111,7 +111,7 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
 
-  // Button Styles
+  /* ---------- Buttons ---------- */
   createButton: {
     backgroundColor: '#2563EB',
     paddingHorizontal: 24,
@@ -156,7 +156,7 @@ export const styles = StyleSheet.create({
     fontSize: 48,
   },
 
-  // Header Styles
+  /* ---------- Header ---------- */
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -181,7 +181,7 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
 
-  // Form Styles
+  /* ---------- Forms ---------- */
   formCard: {
     backgroundColor: '#E9EBEF',
     borderWidth: 4,
@@ -215,7 +215,7 @@ export const styles = StyleSheet.create({
     minHeight: 48,
   },
 
-  // Color Palette Styles
+  /* ---------- Color Palette ---------- */
   colorPalette: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -247,7 +247,7 @@ export const styles = StyleSheet.create({
     fontSize: 20,
   },
 
-  // Action Button Styles
+  /* ---------- Action Buttons ---------- */
   actionButtons: {
     flexDirection: 'row',
     gap: 16,
@@ -258,6 +258,7 @@ export const styles = StyleSheet.create({
     paddingVertical: 16,
     borderRadius: 10,
     alignItems: 'center',
+    justifyContent: 'center',
   },
   cancelActionButton: {
     backgroundColor: '#DC2626',
@@ -266,15 +267,13 @@ export const styles = StyleSheet.create({
     backgroundColor: '#2563EB',
   },
 
-  // Screen Title
+  /* ---------- Inventory ---------- */
   screenTitle: {
     fontSize: 36,
     fontWeight: 'bold',
     marginBottom: 24,
     color: '#000',
   },
-
-  // Inventory Styles
   inventoryCard: {
     backgroundColor: '#E9EBEF',
     borderWidth: 4,
@@ -335,7 +334,7 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
 
-  // Account Screen Styles
+  /* ---------- Account ---------- */
   adherenceCard: {
     backgroundColor: '#2563EB',
     borderRadius: 10,
@@ -443,7 +442,7 @@ export const styles = StyleSheet.create({
     color: '#FFF',
   },
 
-  // Confirm Screen Styles
+  /* ---------- Confirm ---------- */
   confirmContainer: {
     flex: 1,
     justifyContent: 'center',
@@ -512,7 +511,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#F59E0B',
   },
 
-  // Modal Styles
+  /* ---------- Modal ---------- */
   modalOverlay: {
     flex: 1,
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
@@ -558,7 +557,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#2563EB',
   },
 
-  // Bottom Navigation Styles
+  /* ---------- Bottom Navigation ---------- */
   bottomNav: {
     flexDirection: 'row',
     backgroundColor: '#E5E7EB',
@@ -582,5 +581,36 @@ export const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: 'bold',
     color: '#000',
+  },
+
+  /* ---------- Restock Screen ---------- */
+  restockCard: {
+    backgroundColor: '#E9EBEF',
+    borderWidth: 4,
+    borderColor: '#2563EB',
+    borderRadius: 10,
+    padding: 16,
+    marginBottom: 24,
+  },
+  restockCardTitle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 16,
+    color: '#000',
+  },
+  totalToAddContainer: {
+    backgroundColor: '#DBEAFE',
+    borderWidth: 2,
+    borderColor: '#93C5FD',
+    borderRadius: 10,
+    padding: 16,
+  },
+  totalToAddText: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  totalToAddNumber: {
+    color: '#2563EB',
   },
 });
