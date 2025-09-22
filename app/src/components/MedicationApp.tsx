@@ -680,7 +680,7 @@ export function MedicationApp() {
             </View>
 
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-              <Switch value={true} />
+              <MedicationToggle />
               <Text style={styles.inputLabel}>Recordatorio cada 5 minutos</Text>
             </View>
           </View>
