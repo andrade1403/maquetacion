@@ -130,7 +130,7 @@ export const styles = StyleSheet.create({
     marginLeft: 15
   },
   buttonText: {
-    color: '#FFF',
+    color: '#ffffffff',
     fontSize: 20,
     fontWeight: 'bold',
   },
@@ -444,8 +444,8 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F3F4F6',
-    padding: 24,
+    backgroundColor: '#ffffffff',
+    padding: 24
   },
   confirmCard: {
     backgroundColor: '#E9EBEF',
@@ -455,19 +455,23 @@ export const styles = StyleSheet.create({
     padding: 32,
     alignItems: 'center',
     width: '100%',
+    height: '95%',
   },
   confirmIcon: {
-    width: 96,
-    height: 96,
+    width: 168,
+    height: 168,
     backgroundColor: '#2563EB',
-    borderRadius: 48,
+    borderRadius: 88,
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 24,
   },
   confirmMedicationIcon: {
-    width: 48,
-    height: 28,
+    backgroundColor: '#2563EB',
+    borderRadius: 75,
+    justifyContent: 'center',
+    alignItems: 'center',
+    transform: [{ rotate: '135deg' }],
   },
   confirmTitle: {
     fontSize: 36,
@@ -496,16 +500,17 @@ export const styles = StyleSheet.create({
     width: '100%',
     gap: 16,
   },
-  confirmButton: {
+  confirmButtonAlarm: {
     paddingVertical: 16,
     borderRadius: 10,
     alignItems: 'center',
+    marginTop: 43
   },
   confirmTakeButton: {
     backgroundColor: '#10B981',
   },
   postponeButton: {
-    backgroundColor: '#F59E0B',
+    backgroundColor: '#FFCC00',
   },
 
   /* ---------- Modal ---------- */

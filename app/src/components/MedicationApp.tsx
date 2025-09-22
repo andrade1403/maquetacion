@@ -267,7 +267,7 @@ export function MedicationApp() {
                       setCurrentView('edit');
                     }}
                   >
-                    <Text>✏️</Text>
+                    <Text style={{ transform: [{ rotate: '90deg' }], fontSize: 18 }}>✏️</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -602,11 +602,11 @@ export function MedicationApp() {
         <Text style={styles.confirmTime}>08:00 AM</Text>
 
         <View style={styles.confirmActions}>
-          <TouchableOpacity style={[styles.confirmButton, styles.confirmTakeButton]} onPress={() => setCurrentView('main')}>
+          <TouchableOpacity style={[styles.confirmButtonAlarm, styles.confirmTakeButton]} onPress={() => setCurrentView('main')}>
             <Text style={styles.buttonText}>Confirmar toma</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.confirmButton, styles.postponeButton]} onPress={() => setCurrentView('main')}>
+          <TouchableOpacity style={[styles.confirmButtonAlarm, styles.postponeButton]} onPress={() => setCurrentView('main')}>
             <Text style={styles.buttonText}>Posponer 5 minutos</Text>
           </TouchableOpacity>
         </View>
