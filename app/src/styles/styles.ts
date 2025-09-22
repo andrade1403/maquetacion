@@ -5,11 +5,11 @@ const { width } = Dimensions.get('window');
 export const styles = StyleSheet.create({
   app: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#ffffffff',
   },
   container: {
     flex: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#ffffffff',
     paddingHorizontal: 16,
     paddingTop: 16,
   },
@@ -140,10 +140,6 @@ export const styles = StyleSheet.create({
   alarmButton: {
     width: 80,
     height: 80,
-    borderRadius: 40,
-    backgroundColor: '#FFF',
-    borderWidth: 2,
-    borderColor: '#DC2626',
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#000',
