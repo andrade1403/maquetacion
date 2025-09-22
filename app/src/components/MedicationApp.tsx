@@ -25,6 +25,39 @@ interface Medication {
   isActive: boolean;
 }
 
+export function NotificationOptions() {
+  const [selected, setSelected] = useState("voz");
+
+  const options = [
+    { key: "voz", title: "Voz familiar", subtitle: "Grabación personalizada" },
+    { key: "sonido", title: "Sonido suave", subtitle: "Melodía relajante" },
+    { key: "vibracion", title: "Vibración", subtitle: "Solo vibrar" },
+  ];
+
+  return (
+    <View style={styles.containerRadio}>
+      {options.map((option) => (
+        <TouchableOpacity
+          key={option.key}
+          style={styles.option}
+          onPress={() => setSelected(option.key)}
+        >
+          {/* círculo radio */}
+          <View style={styles.radioOuter}>
+            {selected === option.key && <View style={styles.radioInner} />}
+          </View>
+
+          {/* texto */}
+          <View>
+            <Text style={styles.title}>{option.title}</Text>
+            <Text style={styles.subtitle}>{option.subtitle}</Text>
+          </View>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+}
+
 /* ---------- Utility: generateTimeOptions (from generateTime.tsx) ---------- */
 const generateTimeOptions = () => {
   const times: string[] = [];
@@ -373,39 +406,7 @@ export function MedicationApp() {
         <View style={styles.inputGroup}>
           <Text style={styles.inputLabel}>Tipo de recordatorio</Text>
           <View style={{ flexDirection: 'row', gap: 12, marginTop: 8 }}>
-            <TouchableOpacity
-              style={[
-                styles.actionButton,
-                { backgroundColor: selectedReminderType === 'voice' ? '#2563EB' : '#E5E7EB' },
-              ]}
-              onPress={() => setSelectedReminderType('voice')}
-            >
-              <Text style={[styles.buttonText, { color: selectedReminderType === 'voice' ? '#FFF' : '#000' }]}>
-                Grabación Personalizada
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.actionButton,
-                { backgroundColor: selectedReminderType === 'sound' ? '#2563EB' : '#E5E7EB' },
-              ]}
-              onPress={() => setSelectedReminderType('sound')}
-            >
-              <Text style={[styles.buttonText, { color: selectedReminderType === 'sound' ? '#FFF' : '#000' }]}>
-                Sonido suave
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.actionButton,
-                { backgroundColor: selectedReminderType === 'vibration' ? '#2563EB' : '#E5E7EB' },
-              ]}
-              onPress={() => setSelectedReminderType('vibration')}
-            >
-              <Text style={[styles.buttonText, { color: selectedReminderType === 'vibration' ? '#FFF' : '#000' }]}>
-                Vibración
-              </Text>
-            </TouchableOpacity>
+            <NotificationOptions />
           </View>
         </View>
 

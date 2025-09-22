@@ -615,4 +615,39 @@ export const styles = StyleSheet.create({
   totalToAddNumber: {
     color: '#2563EB',
   },
+  /* radio buttons */
+  containerRadio: {
+    padding: 16,
+    backgroundColor: '#E9EBEF',
+  },
+  option: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 16,
+  },
+  radioOuter: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: "#2563EB",
+    alignItems: "center",
+    justifyContent: "center",
+    marginRight: 12,
+  },
+  radioInner: {
+    width: 10,
+    height: 10,
+    borderRadius: 5,
+    backgroundColor: "#2563EB",
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "600",
+    color: "#000",
+  },
+  subtitle: {
+    fontSize: 14,
+    color: "#666",
+  },
 });
