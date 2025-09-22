@@ -208,7 +208,7 @@ export const styles = StyleSheet.create({
     borderColor: '#D1D5DB',
     borderRadius: 10,
     padding: 12,
-    fontSize: 20,
+    fontSize: 15,
     minHeight: 48,
   },
 
