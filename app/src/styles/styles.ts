@@ -108,7 +108,7 @@ export const styles = StyleSheet.create({
     marginBottom: 16,
   },
   listTitle: {
-    fontSize: 24,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#000',
   },
