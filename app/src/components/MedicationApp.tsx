@@ -289,9 +289,7 @@ export function MedicationApp() {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() =>
-            handleConfirmAction(() => setCurrentView('main'), '¿Seguro que quiere cancelar la creación de la alarma?', '')
-          }
+          onPress={() => setCurrentView('main')}
         >
           <Text style={styles.backButtonText}>← Volver</Text>
         </TouchableOpacity>
@@ -620,9 +618,7 @@ export function MedicationApp() {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() =>
-            handleConfirmAction(() => setCurrentView('main'), '¿Seguro que quiere cancelar la edición de la alarma?', '')
-          }
+          onPress={() => setCurrentView('main')}
         >
           <Text style={styles.backButtonText}>← Volver</Text>
         </TouchableOpacity>
@@ -708,9 +704,7 @@ export function MedicationApp() {
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() =>
-              handleConfirmAction(() => setCurrentView('main'), '¿Seguro que quiere cancelar la recarga de medicamento?', '')
-            }
+            onPress={() => setCurrentView('main')}
           >
             <Text style={styles.backButtonText}>← Volver</Text>
           </TouchableOpacity>
