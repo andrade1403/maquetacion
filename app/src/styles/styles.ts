@@ -161,16 +161,15 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
   },
   backButton: {
-    borderWidth: 2,
-    borderColor: '#2563EB',
+    backgroundColor: '#E9EBEF',
     paddingHorizontal: 16,
     paddingVertical: 8,
     borderRadius: 5,
     marginRight: 16,
   },
   backButtonText: {
-    color: '#2563EB',
-    fontSize: 20,
+    color: '#000',
+    fontSize: 15,
     fontWeight: 'bold',
   },
   headerTitle: {
