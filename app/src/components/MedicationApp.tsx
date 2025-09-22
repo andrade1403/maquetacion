@@ -668,8 +668,6 @@ export function MedicationApp() {
               <TextInput
                 style={styles.textInput}
                 placeholder="Descripción de la alarma"
-                value={editDescription}
-                onChangeText={setEditDescription}
               />
             </View>
 
@@ -682,7 +680,7 @@ export function MedicationApp() {
 
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Cantidad a tomar</Text>
-              <TextInput style={styles.textInput} placeholder="Cantidad pastillas a tomar" value={editAmount} onChangeText={setEditAmount} />
+              <TextInput style={styles.textInput} placeholder="Cantidad a tomar"/>
             </View>
 
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
