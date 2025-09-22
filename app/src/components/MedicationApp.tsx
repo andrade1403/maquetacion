@@ -39,6 +39,21 @@ const generateTimeOptions = () => {
   return times;
 };
 
+export function MedicationToggle() {
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  return (
+    <View>
+      <Switch
+        value={isEnabled}
+        onValueChange={() => setIsEnabled(!isEnabled)}
+        trackColor={{ false: "#b0b1b3ff", true: "#2563EB" }}
+        thumbColor={isEnabled ? "#FFFFFF" : "#626262"}
+      />
+    </View>
+  );
+}
+
 /* ---------- Small visual pill icon component ---------- */
 const MedicationIcon = ({ type, style }: { type: string; style?: any }) => {
   const getIconColor = () => {
@@ -400,7 +415,7 @@ export function MedicationApp() {
         </View>
 
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 8 }}>
-          <Switch value={true} />
+          <MedicationToggle />
           <Text style={styles.inputLabel}>Recordatorio cada 5 minutos</Text>
         </View>
       </View>
