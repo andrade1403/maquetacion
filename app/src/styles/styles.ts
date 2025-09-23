@@ -688,7 +688,7 @@ export const styles = StyleSheet.create({
     backgroundColor: "#2563EB",
   },
   title: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: 'bold',
     fontFamily: 'InriaSans-Bold',
   },
