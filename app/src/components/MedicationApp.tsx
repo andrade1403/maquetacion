@@ -485,7 +485,7 @@ export function MedicationApp() {
 
       {medications.map((medication) => {
         const progressPercentage = (medication.quantity / medication.totalQuantity) * 100;
-        const isLowStock = progressPercentage <= 25;
+        const isLowStock = progressPercentage <= 30;
 
         return (
           <View key={medication.id} style={styles.inventoryCard}>
