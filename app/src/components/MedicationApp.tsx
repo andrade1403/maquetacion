@@ -859,7 +859,7 @@ export function MedicationApp() {
     <SafeAreaView style={styles.app}>
       {renderCurrentView()}
 
-      {!['create', 'confirm'].includes(currentView) && <BottomNavigation />}
+      {currentView === 'main' && <BottomNavigation />}
 
       {/* Cancel confirmation */}
       <ConfirmationDialog
