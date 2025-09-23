@@ -601,19 +601,20 @@ export const styles = StyleSheet.create({
     color: '#000',
   },
   totalToAddContainer: {
-    backgroundColor: '#DBEAFE',
+    backgroundColor: '#2563EB',
     borderWidth: 2,
-    borderColor: '#93C5FD',
+    borderColor: '#2563EB',
     borderRadius: 10,
     padding: 16,
+    alignItems: 'center',
   },
   totalToAddText: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#FFFFFF',
   },
   totalToAddNumber: {
-    color: '#2563EB',
+    color: '#FFFFFF',
   },
   /* radio buttons */
   containerRadio: {
