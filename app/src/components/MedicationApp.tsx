@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Icon from 'react-native-vector-icons/Feather';
+
 import {
   View,
   Text,
@@ -7,9 +9,7 @@ import {
   TextInput,
   SafeAreaView,
   Modal,
-  Switch,
-  Image,
-  Alert,
+  Switch
 } from 'react-native';
 import { styles } from '../styles/styles';
 
@@ -320,7 +320,14 @@ export function MedicationApp() {
                       setCurrentView('edit');
                     }}
                   >
-                    <Text style={{ transform: [{ rotate: '90deg' }], fontSize: 18 }}>✏️</Text>
+                    <Icon
+                      name="edit-2"
+                      size={24}
+                      style={[
+                        styles.navIcon,
+                        activeTab === 'inventory' && styles.activeNavIcon,
+                      ]}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -822,37 +829,82 @@ export function MedicationApp() {
   const BottomNavigation = () => (
     <View style={styles.bottomNav}>
       <TouchableOpacity
-        style={[styles.navButton, activeTab === 'home' && styles.activeNavButton]}
+        style={styles.navButton}
         onPress={() => {
           setActiveTab('home');
           setCurrentView('main');
         }}
       >
-        <Text style={styles.navIcon}>🏠</Text>
-        <Text style={styles.navLabel}>Inicio</Text>
+        <Icon
+          name="home"
+          size={24}
+          style={[
+            styles.navIcon,
+            activeTab === 'home' && styles.activeNavIcon,
+          ]}
+        />
+        <Text
+          style={[
+            styles.navLabel,
+            activeTab === 'home' && styles.activeNavLabel,
+          ]}
+        >
+          Inicio
+        </Text>
       </TouchableOpacity>
+
       <TouchableOpacity
-        style={[styles.navButton, activeTab === 'inventory' && styles.activeNavButton]}
+        style={styles.navButton}
         onPress={() => {
           setActiveTab('inventory');
           setCurrentView('main');
         }}
       >
-        <Text style={styles.navIcon}>📦</Text>
-        <Text style={styles.navLabel}>Inventario</Text>
+        <Icon
+          name="package"
+          size={24}
+          style={[
+            styles.navIcon,
+            activeTab === 'inventory' && styles.activeNavIcon,
+          ]}
+        />
+        <Text
+          style={[
+            styles.navLabel,
+            activeTab === 'inventory' && styles.activeNavLabel,
+          ]}
+        >
+          Inventario
+        </Text>
       </TouchableOpacity>
+
       <TouchableOpacity
-        style={[styles.navButton, activeTab === 'account' && styles.activeNavButton]}
+        style={styles.navButton}
         onPress={() => {
           setActiveTab('account');
           setCurrentView('main');
         }}
       >
-        <Text style={styles.navIcon}>👤</Text>
-        <Text style={styles.navLabel}>Cuenta</Text>
+        <Icon
+          name="user"
+          size={24}
+          style={[
+            styles.navIcon,
+            activeTab === 'account' && styles.activeNavIcon,
+          ]}
+        />
+        <Text
+          style={[
+            styles.navLabel,
+            activeTab === 'account' && styles.activeNavLabel,
+          ]}
+        >
+          Cuenta
+        </Text>
       </TouchableOpacity>
     </View>
   );
+
 
   /* ---------- App return ---------- */
   return (

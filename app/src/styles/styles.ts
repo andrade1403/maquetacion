@@ -572,17 +572,21 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: 8,
   },
-  activeNavButton: {
-    backgroundColor: '#2563EB',
-  },
   navIcon: {
     fontSize: 24,
     marginBottom: 4,
+    color: '#626262',
   },
   navLabel: {
     fontSize: 12,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#626262',
+  },
+  activeNavIcon: {
+    color: '#2563EB',
+  },
+  activeNavLabel: {
+    color: '#2563EB',
   },
 
   /* ---------- Restock Screen ---------- */
