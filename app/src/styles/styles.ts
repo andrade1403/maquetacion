@@ -58,9 +58,10 @@ export const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 36,
-    fontWeight: 'bold',
     marginBottom: 16,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
 
   /* ---------- Medication Row ---------- */
@@ -74,28 +75,32 @@ export const styles = StyleSheet.create({
   },
   medicationName: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   medicationDose: {
     fontSize: 20,
     color: '#666',
+    fontFamily: 'InriaSans-Regular',
   },
   medicationTime: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#2563EB',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   medicationQuantity: {
     fontSize: 20,
     color: '#666',
+    fontFamily: 'InriaSans-Regular',
   },
   medicationActions: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: 10
-},
+  },
 
   /* ---------- List ---------- */
   medicationsList: {
@@ -109,8 +114,9 @@ export const styles = StyleSheet.create({
   },
   listTitle: {
     fontSize: 22,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
 
   /* ---------- Buttons ---------- */
@@ -133,6 +139,7 @@ export const styles = StyleSheet.create({
     color: '#ffffffff',
     fontSize: 20,
     fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   alarmButtonContainer: {
     alignItems: 'flex-end',
@@ -152,6 +159,8 @@ export const styles = StyleSheet.create({
   },
   alarmButtonText: {
     fontSize: 48,
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
 
   /* ---------- Header ---------- */
@@ -171,11 +180,13 @@ export const styles = StyleSheet.create({
     color: '#000',
     fontSize: 15,
     fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   headerTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
 
   /* ---------- Forms ---------- */
@@ -189,18 +200,20 @@ export const styles = StyleSheet.create({
   },
   formSectionTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#000000',
     marginBottom: 24,
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   inputGroup: {
     marginBottom: 24,
   },
   inputLabel: {
     fontSize: 20,
-    fontWeight: 'bold',
     marginBottom: 8,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   textInput: {
     backgroundColor: '#FFF',
@@ -210,6 +223,7 @@ export const styles = StyleSheet.create({
     padding: 12,
     fontSize: 15,
     minHeight: 48,
+    fontFamily: 'InriaSans-Regular',
   },
 
   /* ---------- Color Palette ---------- */
@@ -235,6 +249,7 @@ export const styles = StyleSheet.create({
     color: '#FFF',
     fontSize: 20,
     fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   checkMark: {
     position: 'absolute',
@@ -242,6 +257,8 @@ export const styles = StyleSheet.create({
     right: 4,
     color: '#FFF',
     fontSize: 20,
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
 
   /* ---------- Action Buttons ---------- */
@@ -267,9 +284,10 @@ export const styles = StyleSheet.create({
   /* ---------- Inventory ---------- */
   screenTitle: {
     fontSize: 36,
-    fontWeight: 'bold',
     marginBottom: 24,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   inventoryCard: {
     backgroundColor: '#E9EBEF',
@@ -282,6 +300,7 @@ export const styles = StyleSheet.create({
   stockInfo: {
     fontSize: 20,
     color: '#000',
+    fontFamily: 'InriaSans-Regular',
   },
   progressSection: {
     marginTop: 16,
@@ -293,13 +312,15 @@ export const styles = StyleSheet.create({
   },
   progressLabel: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   progressPercentage: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   progressBar: {
     width: '100%',
@@ -320,9 +341,10 @@ export const styles = StyleSheet.create({
   },
   warningText: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#000',
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   restockButton: {
     marginTop: 16,
@@ -341,22 +363,24 @@ export const styles = StyleSheet.create({
   },
   adherenceTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#FFF',
     marginBottom: 16,
     textAlign: 'center',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   adherencePercentage: {
     fontSize: 72,
-    fontWeight: 'bold',
     color: '#FFF',
     marginBottom: 8,
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   adherenceSubtitle: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#FFF',
     textAlign: 'center',
+    fontFamily: 'InriaSans-Regular',
   },
   progressCard: {
     backgroundColor: '#E9EBEF',
@@ -368,9 +392,10 @@ export const styles = StyleSheet.create({
   },
   progressCardTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
     marginBottom: 16,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   dailyProgress: {
     gap: 12,
@@ -383,8 +408,9 @@ export const styles = StyleSheet.create({
   dayLabel: {
     width: 48,
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   dailyProgressBar: {
     flex: 1,
@@ -400,17 +426,18 @@ export const styles = StyleSheet.create({
   progressText: {
     width: 64,
     fontSize: 20,
-    fontWeight: 'bold',
     textAlign: 'right',
+    fontFamily: 'InriaSans-Regular',
   },
   statsContainer: {
     marginBottom: 32,
   },
   statsTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
     marginBottom: 16,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   statsRow: {
     flexDirection: 'row',
@@ -430,13 +457,14 @@ export const styles = StyleSheet.create({
   },
   statNumber: {
     fontSize: 36,
-    fontWeight: 'bold',
     color: '#FFF',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   statLabel: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#FFF',
+    fontFamily: 'InriaSans-Regular',
   },
 
   /* ---------- Confirm ---------- */
@@ -475,26 +503,30 @@ export const styles = StyleSheet.create({
   },
   confirmTitle: {
     fontSize: 36,
-    fontWeight: 'bold',
     marginBottom: 8,
     textAlign: 'center',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   confirmMedicationName: {
     fontSize: 24,
-    fontWeight: 'bold',
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   confirmQuantity: {
     fontSize: 20,
     color: '#666',
+    fontFamily: 'InriaSans-Regular',
   },
   confirmTime: {
     fontSize: 36,
-    fontWeight: 'bold',
     color: '#2563EB',
     marginTop: 16,
     marginBottom: 32,
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   confirmActions: {
     width: '100%',
@@ -531,16 +563,18 @@ export const styles = StyleSheet.create({
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
     textAlign: 'center',
     marginBottom: 16,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   modalDescription: {
     fontSize: 16,
     textAlign: 'center',
     color: '#666',
     marginBottom: 24,
+    fontFamily: 'InriaSans-Regular',
   },
   modalButtons: {
     flexDirection: 'row',
@@ -575,18 +609,20 @@ export const styles = StyleSheet.create({
   navIcon: {
     fontSize: 24,
     marginBottom: 4,
-    color: '#626262',
+    color: '#6B7280',
   },
   navLabel: {
     fontSize: 12,
-    fontWeight: 'bold',
-    color: '#626262',
+    color: '#6B7280',
+    fontFamily: 'InriaSans-Regular',
   },
   activeNavIcon: {
     color: '#2563EB',
   },
   activeNavLabel: {
     color: '#2563EB',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
 
   /* ---------- Restock Screen ---------- */
@@ -600,9 +636,10 @@ export const styles = StyleSheet.create({
   },
   restockCardTitle: {
     fontSize: 24,
-    fontWeight: 'bold',
     marginBottom: 16,
     color: '#000',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   totalToAddContainer: {
     backgroundColor: '#2563EB',
@@ -614,13 +651,17 @@ export const styles = StyleSheet.create({
   },
   totalToAddText: {
     fontSize: 20,
-    fontWeight: 'bold',
     color: '#FFFFFF',
+    fontWeight: 'bold',
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
   },
   totalToAddNumber: {
     color: '#FFFFFF',
+    fontFamily: 'InriaSans-Regular',
   },
-  /* radio buttons */
+
+  /* ---------- Radio buttons ---------- */
   containerRadio: {
     padding: 16,
     backgroundColor: '#E9EBEF',
@@ -647,12 +688,13 @@ export const styles = StyleSheet.create({
     backgroundColor: "#2563EB",
   },
   title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    fontFamily: 'InriaSans-Bold',
+  },
+  description: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#000",
-  },
-  subtitle: {
-    fontSize: 14,
-    color: "#666",
-  },
+    color: "#6B7280",
+    fontFamily: 'InriaSans-Regular',
+  }
 });
