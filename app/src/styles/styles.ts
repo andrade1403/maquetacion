@@ -313,7 +313,7 @@ export const styles = StyleSheet.create({
     borderRadius: 8,
   },
   lowStockWarning: {
-    backgroundColor: '#FEF3C7',
+    backgroundColor: '#FFCC00',
     borderRadius: 10,
     padding: 12,
     marginTop: 16,
