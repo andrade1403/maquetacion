@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import Icon from 'react-native-vector-icons/Feather';
+
 import {
   View,
   Text,
@@ -7,9 +9,7 @@ import {
   TextInput,
   SafeAreaView,
   Modal,
-  Switch,
-  Image,
-  Alert,
+  Switch
 } from 'react-native';
 import { styles } from '../styles/styles';
 
@@ -25,6 +25,39 @@ interface Medication {
   isActive: boolean;
 }
 
+export function NotificationOptions() {
+  const [selected, setSelected] = useState("voz");
+
+  const options = [
+    { key: "voz", title: "Voz familiar", subtitle: "Grabación personalizada" },
+    { key: "sonido", title: "Sonido suave", subtitle: "Melodía relajante" },
+    { key: "vibracion", title: "Vibración", subtitle: "Solo vibrar" },
+  ];
+
+  return (
+    <View style={styles.containerRadio}>
+      {options.map((option) => (
+        <TouchableOpacity
+          key={option.key}
+          style={styles.option}
+          onPress={() => setSelected(option.key)}
+        >
+          {/* círculo radio */}
+          <View style={styles.radioOuter}>
+            {selected === option.key && <View style={styles.radioInner} />}
+          </View>
+
+          {/* texto */}
+          <View>
+            <Text style={styles.title}>{option.title}</Text>
+            <Text style={styles.subtitle}>{option.subtitle}</Text>
+          </View>
+        </TouchableOpacity>
+      ))}
+    </View>
+  );
+}
+
 /* ---------- Utility: generateTimeOptions (from generateTime.tsx) ---------- */
 const generateTimeOptions = () => {
   const times: string[] = [];
@@ -38,6 +71,21 @@ const generateTimeOptions = () => {
   }
   return times;
 };
+
+export function MedicationToggle() {
+  const [isEnabled, setIsEnabled] = useState(false);
+
+  return (
+    <View>
+      <Switch
+        value={isEnabled}
+        onValueChange={() => setIsEnabled(!isEnabled)}
+        trackColor={{ false: "#b0b1b3ff", true: "#2563EB" }}
+        thumbColor={isEnabled ? "#FFFFFF" : "#626262"}
+      />
+    </View>
+  );
+}
 
 /* ---------- Small visual pill icon component ---------- */
 const MedicationIcon = ({ type, style }: { type: string; style?: any }) => {
@@ -68,7 +116,7 @@ const MedicationIcon = ({ type, style }: { type: string; style?: any }) => {
 /* ---------- Confirmation Dialog (modal) ---------- */
 const ConfirmationDialog = ({
   visible,
-  onClose,
+  onClose: _onClose,
   title,
   description,
   onConfirm,
@@ -167,7 +215,7 @@ export function MedicationApp() {
   /* Shared create/edit state */
   const [selectedColor, setSelectedColor] = useState<string>('');
   const [selectedTime, setSelectedTime] = useState<string>('02:00 AM');
-  const [selectedReminderType, setSelectedReminderType] = useState<string>('voice');
+  const [_selectedReminderType, _setSelectedReminderType] = useState<string>('voice');
 
   /* UI: time picker modal for create/edit screens */
   const [showTimePicker, setShowTimePicker] = useState(false);
@@ -177,8 +225,8 @@ export function MedicationApp() {
   const [restockPerBox, setRestockPerBox] = useState<string>('30');
 
   /* Edit screen temp fields */
-  const [editDescription, setEditDescription] = useState<string>('Después del desayuno');
-  const [editAmount, setEditAmount] = useState<string>('');
+  const [_editDescription, _setEditDescription] = useState<string>('Después del desayuno');
+  const [_editAmount, _setEditAmount] = useState<string>('');
 
   /* Colors palette */
   const colorPalette = [
@@ -195,9 +243,14 @@ export function MedicationApp() {
     );
   };
 
+  const [dialogTitle, setDialogTitle] = useState("");
+  const [dialogDescription, setDialogDescription] = useState("");
+
   // handleConfirmation.js equivalent: sets pending action and shows the appropriate dialog
   const handleConfirmAction = (action: () => void, title: string, description: string) => {
     setPendingAction(() => action);
+    setDialogTitle(title);
+    setDialogDescription(description);
     // Use includes lower-case as your titles use lower-case like 'guardar' and 'cancelar'
     setShowSaveDialog(title.toLowerCase().includes('guardar'));
     setShowCancelDialog(title.toLowerCase().includes('cancelar'));
@@ -234,7 +287,7 @@ export function MedicationApp() {
                 // reset create fields if necessary
                 setSelectedColor('');
                 setSelectedTime('02:00 AM');
-                setSelectedReminderType('voice');
+                // setSelectedReminderType('voice'); // Commented out unused variable
                 setCurrentView('create');
               }}
             >
@@ -253,17 +306,28 @@ export function MedicationApp() {
                   <Text style={styles.medicationQuantity}>1 pastilla</Text>
                 </View>
                 <View style={styles.medicationActions}>
-                  <Switch value={medication.isActive} onValueChange={() => toggleMedication(medication.id)} />
+                  <Switch 
+                  value={medication.isActive} 
+                  onValueChange={() => toggleMedication(medication.id)} 
+                  trackColor={{ false: "#b0b1b3ff", true: "#2563EB" }}
+                  thumbColor={medication.isActive ? "#FFFFFF" : "#626262"} />
                   <TouchableOpacity
                     style={styles.editButton}
                     onPress={() => {
                       setSelectedMedication(medication);
-                      setEditAmount(medication.dose);
+                      // setEditAmount(medication.dose); // Commented out unused variable
                       setSelectedTime(medication.nextTime);
                       setCurrentView('edit');
                     }}
                   >
-                    <Text>✏️</Text>
+                    <Icon
+                      name="edit-2"
+                      size={24}
+                      style={[
+                        styles.navIcon,
+                        activeTab === 'inventory' && styles.activeNavIcon,
+                      ]}
+                    />
                   </TouchableOpacity>
                 </View>
               </View>
@@ -285,9 +349,7 @@ export function MedicationApp() {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() =>
-            handleConfirmAction(() => setCurrentView('main'), '¿Seguro que quiere cancelar la creación de la alarma?', '')
-          }
+          onPress={() => setCurrentView('main')}
         >
           <Text style={styles.backButtonText}>← Volver</Text>
         </TouchableOpacity>
@@ -356,39 +418,7 @@ export function MedicationApp() {
         <View style={styles.inputGroup}>
           <Text style={styles.inputLabel}>Tipo de recordatorio</Text>
           <View style={{ flexDirection: 'row', gap: 12, marginTop: 8 }}>
-            <TouchableOpacity
-              style={[
-                styles.actionButton,
-                { backgroundColor: selectedReminderType === 'voice' ? '#2563EB' : '#E5E7EB' },
-              ]}
-              onPress={() => setSelectedReminderType('voice')}
-            >
-              <Text style={[styles.buttonText, { color: selectedReminderType === 'voice' ? '#FFF' : '#000' }]}>
-                Grabación Personalizada
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.actionButton,
-                { backgroundColor: selectedReminderType === 'sound' ? '#2563EB' : '#E5E7EB' },
-              ]}
-              onPress={() => setSelectedReminderType('sound')}
-            >
-              <Text style={[styles.buttonText, { color: selectedReminderType === 'sound' ? '#FFF' : '#000' }]}>
-                Sonido suave
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              style={[
-                styles.actionButton,
-                { backgroundColor: selectedReminderType === 'vibration' ? '#2563EB' : '#E5E7EB' },
-              ]}
-              onPress={() => setSelectedReminderType('vibration')}
-            >
-              <Text style={[styles.buttonText, { color: selectedReminderType === 'vibration' ? '#FFF' : '#000' }]}>
-                Vibración
-              </Text>
-            </TouchableOpacity>
+            <NotificationOptions />
           </View>
         </View>
 
@@ -398,7 +428,7 @@ export function MedicationApp() {
         </View>
 
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12, marginTop: 8 }}>
-          <Switch value={true} />
+          <MedicationToggle />
           <Text style={styles.inputLabel}>Recordatorio cada 5 minutos</Text>
         </View>
       </View>
@@ -462,7 +492,7 @@ export function MedicationApp() {
 
       {medications.map((medication) => {
         const progressPercentage = (medication.quantity / medication.totalQuantity) * 100;
-        const isLowStock = progressPercentage <= 25;
+        const isLowStock = progressPercentage <= 30;
 
         return (
           <View key={medication.id} style={styles.inventoryCard}>
@@ -598,11 +628,11 @@ export function MedicationApp() {
         <Text style={styles.confirmTime}>08:00 AM</Text>
 
         <View style={styles.confirmActions}>
-          <TouchableOpacity style={[styles.confirmButton, styles.confirmTakeButton]} onPress={() => setCurrentView('main')}>
+          <TouchableOpacity style={[styles.confirmButtonAlarm, styles.confirmTakeButton]} onPress={() => setCurrentView('main')}>
             <Text style={styles.buttonText}>Confirmar toma</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={[styles.confirmButton, styles.postponeButton]} onPress={() => setCurrentView('main')}>
+          <TouchableOpacity style={[styles.confirmButtonAlarm, styles.postponeButton]} onPress={() => setCurrentView('main')}>
             <Text style={styles.buttonText}>Posponer 5 minutos</Text>
           </TouchableOpacity>
         </View>
@@ -616,9 +646,7 @@ export function MedicationApp() {
       <View style={styles.header}>
         <TouchableOpacity
           style={styles.backButton}
-          onPress={() =>
-            handleConfirmAction(() => setCurrentView('main'), '¿Seguro que quiere cancelar la edición de la alarma?', '')
-          }
+          onPress={() => setCurrentView('main')}
         >
           <Text style={styles.backButtonText}>← Volver</Text>
         </TouchableOpacity>
@@ -641,14 +669,11 @@ export function MedicationApp() {
 
           <View style={styles.formCard}>
             <Text style={[styles.formSectionTitle, { fontSize: 20, marginBottom: 12 }]}>Configuración de Alarma</Text>
-
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Descripción</Text>
               <TextInput
                 style={styles.textInput}
                 placeholder="Descripción de la alarma"
-                value={editDescription}
-                onChangeText={setEditDescription}
               />
             </View>
 
@@ -661,11 +686,11 @@ export function MedicationApp() {
 
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Cantidad a tomar</Text>
-              <TextInput style={styles.textInput} placeholder="Cantidad pastillas a tomar" value={editAmount} onChangeText={setEditAmount} />
+              <TextInput style={styles.textInput} placeholder="Cantidad a tomar"/>
             </View>
 
             <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-              <Switch value={true} />
+              <MedicationToggle />
               <Text style={styles.inputLabel}>Recordatorio cada 5 minutos</Text>
             </View>
           </View>
@@ -688,7 +713,38 @@ export function MedicationApp() {
               <Text style={styles.buttonText}>Guardar</Text>
             </TouchableOpacity>
           </View>
-        </>
+        {/* Time picker modal */}
+      <Modal visible={showTimePicker} animationType="slide">
+        <SafeAreaView style={{ flex: 1 }}>
+          <View style={{ padding: 16, flex: 1 }}>
+            <View style={{ flexDirection: 'row', justifyContent: 'space-between', marginBottom: 12 }}>
+              <Text style={{ fontSize: 20, fontWeight: 'bold' }}>Seleccione hora</Text>
+              <TouchableOpacity onPress={() => setShowTimePicker(false)}>
+                <Text style={{ color: '#2563EB', fontSize: 18 }}>Cerrar</Text>
+              </TouchableOpacity>
+            </View>
+            <ScrollView>
+              {generateTimeOptions().map((time) => (
+                <TouchableOpacity
+                  key={time}
+                  style={{
+                    paddingVertical: 12,
+                    borderBottomWidth: 1,
+                    borderBottomColor: '#E5E7EB',
+                  }}
+                  onPress={() => {
+                    setSelectedTime(time);
+                    setShowTimePicker(false);
+                  }}
+                >
+                  <Text style={{ fontSize: 18 }}>{time}</Text>
+                </TouchableOpacity>
+              ))}
+            </ScrollView>
+          </View>
+        </SafeAreaView>
+      </Modal>
+      </>
       )}
     </ScrollView>
   );
@@ -704,9 +760,7 @@ export function MedicationApp() {
         <View style={styles.header}>
           <TouchableOpacity
             style={styles.backButton}
-            onPress={() =>
-              handleConfirmAction(() => setCurrentView('main'), '¿Seguro que quiere cancelar la recarga de medicamento?', '')
-            }
+            onPress={() => setCurrentView('main')}
           >
             <Text style={styles.backButtonText}>← Volver</Text>
           </TouchableOpacity>
@@ -775,51 +829,96 @@ export function MedicationApp() {
   const BottomNavigation = () => (
     <View style={styles.bottomNav}>
       <TouchableOpacity
-        style={[styles.navButton, activeTab === 'home' && styles.activeNavButton]}
+        style={styles.navButton}
         onPress={() => {
           setActiveTab('home');
           setCurrentView('main');
         }}
       >
-        <Text style={styles.navIcon}>🏠</Text>
-        <Text style={styles.navLabel}>Inicio</Text>
+        <Icon
+          name="home"
+          size={24}
+          style={[
+            styles.navIcon,
+            activeTab === 'home' && styles.activeNavIcon,
+          ]}
+        />
+        <Text
+          style={[
+            styles.navLabel,
+            activeTab === 'home' && styles.activeNavLabel,
+          ]}
+        >
+          Inicio
+        </Text>
       </TouchableOpacity>
+
       <TouchableOpacity
-        style={[styles.navButton, activeTab === 'inventory' && styles.activeNavButton]}
+        style={styles.navButton}
         onPress={() => {
           setActiveTab('inventory');
           setCurrentView('main');
         }}
       >
-        <Text style={styles.navIcon}>📦</Text>
-        <Text style={styles.navLabel}>Inventario</Text>
+        <Icon
+          name="package"
+          size={24}
+          style={[
+            styles.navIcon,
+            activeTab === 'inventory' && styles.activeNavIcon,
+          ]}
+        />
+        <Text
+          style={[
+            styles.navLabel,
+            activeTab === 'inventory' && styles.activeNavLabel,
+          ]}
+        >
+          Inventario
+        </Text>
       </TouchableOpacity>
+
       <TouchableOpacity
-        style={[styles.navButton, activeTab === 'account' && styles.activeNavButton]}
+        style={styles.navButton}
         onPress={() => {
           setActiveTab('account');
           setCurrentView('main');
         }}
       >
-        <Text style={styles.navIcon}>👤</Text>
-        <Text style={styles.navLabel}>Cuenta</Text>
+        <Icon
+          name="user"
+          size={24}
+          style={[
+            styles.navIcon,
+            activeTab === 'account' && styles.activeNavIcon,
+          ]}
+        />
+        <Text
+          style={[
+            styles.navLabel,
+            activeTab === 'account' && styles.activeNavLabel,
+          ]}
+        >
+          Cuenta
+        </Text>
       </TouchableOpacity>
     </View>
   );
+
 
   /* ---------- App return ---------- */
   return (
     <SafeAreaView style={styles.app}>
       {renderCurrentView()}
 
-      {!['create', 'confirm'].includes(currentView) && <BottomNavigation />}
+      {currentView === 'main' && <BottomNavigation />}
 
       {/* Cancel confirmation */}
       <ConfirmationDialog
         visible={showCancelDialog}
         onClose={() => setShowCancelDialog(false)}
-        title="¿Seguro que quiere cancelar la acción?"
-        description="Los datos ingresados se perderán"
+        title={dialogTitle}
+        description={dialogDescription}
         onConfirm={() => {
           pendingAction();
           setShowCancelDialog(false);
@@ -831,8 +930,8 @@ export function MedicationApp() {
       <ConfirmationDialog
         visible={showSaveDialog}
         onClose={() => setShowSaveDialog(false)}
-        title="¿Seguro que quiere guardar los cambios?"
-        description="Se guardarán los datos ingresados"
+        title={dialogTitle}
+        description={dialogDescription}
         onConfirm={() => {
           pendingAction();
           setShowSaveDialog(false);

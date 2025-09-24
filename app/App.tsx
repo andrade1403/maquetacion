@@ -8,7 +8,7 @@ import { StatusBar } from 'react-native';
 import {
   SafeAreaProvider,
 } from 'react-native-safe-area-context';
-import { MedicationApp } from './src/components/MedicationApp';
+import { MedicationApp } from './src/components/MedicationAppRefactored';
 
 function App() {
   return (
