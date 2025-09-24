@@ -50,7 +50,8 @@ const InventoryScreen = ({ medications, onRestockMedication }: InventoryScreenPr
 
           {isLowStock && (
             <View style={styles.lowStockWarning}>
-              <Text style={styles.warningText}>¡Quedan pocas pastillas. Recargar pronto!</Text>
+              <Text style={styles.warningText}>¡Quedan pocas pastillas.</Text>
+              <Text style={styles.warningText}>Recargar pronto!</Text>
             </View>
           )}
 

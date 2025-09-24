@@ -27,7 +27,7 @@ const ConfirmationDialog = ({
     <View style={styles.modalOverlay}>
       <View style={styles.modalContent}>
         <Text style={styles.modalTitle}>{title}</Text>
-        <Text style={styles.modalDescription}>{description}</Text>
+        {/* <Text style={styles.modalDescription}>{description}</Text> */}
         <View style={styles.modalButtons}>
           <TouchableOpacity style={[styles.modalButton, styles.cancelButton]} onPress={onCancel}>
             <Text style={styles.buttonText}>{cancelText}</Text>

@@ -28,14 +28,14 @@ const EditAlarmScreen = ({ medication, onBack, onSave, onCancel }: EditAlarmScre
 
       <View style={styles.formCard}>
         <View style={{ flexDirection: 'row', alignItems: 'center', gap: 12 }}>
-          <MedicationIcon type={medication.pillIcon} style={{ width: 84, height: 84 }} />
+          <MedicationIcon type={medication.pillIcon} style={{ width: 60, height: 60 }} />
           <View style={{ flex: 1 }}>
-            <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{medication.name}</Text>
-            <Text style={{ fontSize: 20 }}>{medication.dose}</Text>
-            <Text style={{ fontSize: 20, fontWeight: 'bold', color: '#2563EB' }}>
+            <Text style={{ fontSize: 16}}>{medication.name}</Text>
+            <Text style={{ fontSize: 16 }}>{medication.dose}</Text>
+            <Text style={{ fontSize: 16, fontWeight: 'bold', color: '#2563EB' }}>
               {medication.nextTime}
             </Text>
-            <Text style={{ fontSize: 20, color: '#6B7280' }}>1 pastilla</Text>
+            <Text style={{ fontSize: 16, color: '#6B7280' }}>1 pastilla</Text>
           </View>
         </View>
       </View>
@@ -55,7 +55,7 @@ const EditAlarmScreen = ({ medication, onBack, onSave, onCancel }: EditAlarmScre
             style={[styles.textInput, { justifyContent: 'center' }]}
             onPress={() => setShowTimePicker(true)}
           >
-            <Text style={{ fontSize: 20 }}>{selectedTime}</Text>
+            <Text style={{ fontSize: 16 }}>{selectedTime}</Text>
           </TouchableOpacity>
         </View>
 

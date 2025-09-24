@@ -85,7 +85,7 @@ const CreateAlarmScreen = ({ onBack, onSave, onCancel }: CreateAlarmScreenProps)
             style={[styles.textInput, { justifyContent: 'center' }]}
             onPress={() => setShowTimePicker(true)}
           >
-            <Text style={{ fontSize: 20 }}>{selectedTime}</Text>
+            <Text style={{ fontSize: 16 }}>{selectedTime}</Text>
           </TouchableOpacity>
         </View>
 

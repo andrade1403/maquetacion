@@ -70,7 +70,7 @@ const DashboardScreen = ({
                 >
                   <Icon
                     name="edit-2"
-                    size={24}
+                    size={20}
                     style={styles.navIcon}
                   />
                 </TouchableOpacity>
