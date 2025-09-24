@@ -116,7 +116,7 @@ const MedicationIcon = ({ type, style }: { type: string; style?: any }) => {
 /* ---------- Confirmation Dialog (modal) ---------- */
 const ConfirmationDialog = ({
   visible,
-  onClose,
+  onClose: _onClose,
   title,
   description,
   onConfirm,
@@ -215,7 +215,7 @@ export function MedicationApp() {
   /* Shared create/edit state */
   const [selectedColor, setSelectedColor] = useState<string>('');
   const [selectedTime, setSelectedTime] = useState<string>('02:00 AM');
-  const [selectedReminderType, setSelectedReminderType] = useState<string>('voice');
+  const [_selectedReminderType, _setSelectedReminderType] = useState<string>('voice');
 
   /* UI: time picker modal for create/edit screens */
   const [showTimePicker, setShowTimePicker] = useState(false);
@@ -225,8 +225,8 @@ export function MedicationApp() {
   const [restockPerBox, setRestockPerBox] = useState<string>('30');
 
   /* Edit screen temp fields */
-  const [editDescription, setEditDescription] = useState<string>('Después del desayuno');
-  const [editAmount, setEditAmount] = useState<string>('');
+  const [_editDescription, _setEditDescription] = useState<string>('Después del desayuno');
+  const [_editAmount, _setEditAmount] = useState<string>('');
 
   /* Colors palette */
   const colorPalette = [
@@ -287,7 +287,7 @@ export function MedicationApp() {
                 // reset create fields if necessary
                 setSelectedColor('');
                 setSelectedTime('02:00 AM');
-                setSelectedReminderType('voice');
+                // setSelectedReminderType('voice'); // Commented out unused variable
                 setCurrentView('create');
               }}
             >
@@ -315,7 +315,7 @@ export function MedicationApp() {
                     style={styles.editButton}
                     onPress={() => {
                       setSelectedMedication(medication);
-                      setEditAmount(medication.dose);
+                      // setEditAmount(medication.dose); // Commented out unused variable
                       setSelectedTime(medication.nextTime);
                       setCurrentView('edit');
                     }}

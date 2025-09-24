@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window');
+// const { width } = Dimensions.get('window'); // Commented out as it's not used
 
 export const styles = StyleSheet.create({
   app: {
@@ -654,7 +654,6 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     color: '#FFFFFF',
     fontWeight: 'bold',
-    fontWeight: 'bold',
     fontFamily: 'InriaSans-Bold',
   },
   totalToAddNumber: {
@@ -694,6 +693,11 @@ export const styles = StyleSheet.create({
     fontFamily: 'InriaSans-Bold',
   },
   description: {
+    fontSize: 16,
+    color: "#6B7280",
+    fontFamily: 'InriaSans-Regular',
+  },
+  subtitle: {
     fontSize: 16,
     color: "#6B7280",
     fontFamily: 'InriaSans-Regular',
