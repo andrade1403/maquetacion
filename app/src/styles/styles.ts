@@ -181,7 +181,7 @@ export const styles = StyleSheet.create({
     fontFamily: 'InriaSans-Bold',
   },
   headerTitle: {
-    fontSize: 24,
+    fontSize: 20,
     color: '#000',
     fontWeight: 'bold',
     fontFamily: 'InriaSans-Bold',
