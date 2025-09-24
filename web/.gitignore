@@ -1,0 +1,59 @@
+# Dependencias
+node_modules/
+.pnpm-store/
+
+# Archivos de construcción
+dist/
+build/
+out/
+
+# Archivos de desarrollo local
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Caché de Vite
+.vite/
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Archivos temporales del editor
+*.swp
+*.swo
+*~
+
+# Coverage reports
+coverage/
+*.lcov
+
+# ESLint cache
+.eslintcache
+
+# TypeScript
+*.tsbuildinfo
+.tscache/
+
+# Storybook
+.out
+.storybook-out
+storybook-static
+
+# Optional npm cache directory
+.npm
+
+# Yarn
+.yarn-integrity
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
